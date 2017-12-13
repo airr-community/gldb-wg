@@ -1,4 +1,4 @@
-Recommendations from the AIRR Common Repository Working Group
+Recommendations from the AIRR Germline Databases Working Group
 =============================================================
 
 Working Group Co-Chairs: Andrew Collins, Corey Watson
