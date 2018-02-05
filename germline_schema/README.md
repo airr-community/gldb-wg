@@ -8,7 +8,7 @@ Documents created from the schema are, currently:
 
 *Note*: these documents are currently in draft and under review. The submission form is not in use yet. For current submissions, please refer to IARC for guidance.
 
-##Building the documents##
+## Building the documents
 
 The documents are built from [templates](templates/) using [scripts](scripts/). Running [make_documents.sh](scripts/make_documents.sh) in the scripts directory from Linux or Windows will recreate them.
 
