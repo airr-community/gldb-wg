@@ -1,8 +1,8 @@
-#Receptor Germline Gene Definitions#
+# Receptor Germline Gene Definitions
 
 Data Items required to document receptor germline genes, including the information from which it was inferred, and its delineation according to defferent numbering schemes.
 
-##Germline Set##
+## Germline Set
 
 The germline genes observed in a particular species or type
 
@@ -12,7 +12,7 @@ The germline genes observed in a particular species or type
 | `{{ field }}` | {{ Germline_Set.properties[field].type }} | {{  Germline_Set.properties[field].description }} |
 {%- endfor %}
 
-##Germline Description##
+## Germline Description
 
 The description of a single gene.
 
@@ -22,11 +22,11 @@ The description of a single gene.
 | `{{ field }}` | {{ Gene_Description.properties[field].type }} | {{  Gene_Description.properties[field].description }} |
 {%- endfor %}
 
-###Germline Delineation###
+### Germline Delineation
 
 The delineation of fields, and the numbering of codons, according to a particular scheme
 
-###V-gene Delineation###
+### V-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ The delineation of fields, and the numbering of codons, according to a particula
 | `{{ field }}` | {{ Gene_Delineation_V.properties[field].type }} | {{  Gene_Delineation_V.properties[field].description }} |
 {%- endfor %}
 
-###D-gene Delineation###
+### D-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ The delineation of fields, and the numbering of codons, according to a particula
 | `{{ field }}` | {{ Gene_Delineation_D.properties[field].type }} | {{  Gene_Delineation_D.properties[field].description }} |
 {%- endfor %}
 
-###J-gene Delineation###
+### J-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -51,12 +51,12 @@ The delineation of fields, and the numbering of codons, according to a particula
 {%- endfor %}
 
 
-##Supporting Sequences##
+## Supporting Sequences
 
 Sequences, either observed in repertoires or genomic in origin, leading to the inference of a gene.
 
 
-###Observed Sequence###
+### Observed Sequence
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ Sequences, either observed in repertoires or genomic in origin, leading to the i
 | `{{ field }}` | {{ Observed_Sequence.properties[field].type }} | {{  Observed_Sequence.properties[field].description }} |
 {%- endfor %}
 
-###Genomic Sequence###
+### Genomic Sequence
 
 | Name | Type | Description |
 | --- | --- | --- |

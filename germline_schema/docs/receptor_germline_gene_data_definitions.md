@@ -1,8 +1,8 @@
-#Receptor Germline Gene Definitions#
+# Receptor Germline Gene Definitions
 
 Data Items required to document receptor germline genes, including the information from which it was inferred, and its delineation according to defferent numbering schemes.
 
-##Germline Set##
+## Germline Set
 
 The germline genes observed in a particular species or type
 
@@ -18,7 +18,7 @@ The germline genes observed in a particular species or type
 | `organism` | string | Binomial designation of subject's species |
 | `notes` | string | None |
 
-##Germline Description##
+## Germline Description
 
 The description of a single gene.
 
@@ -63,11 +63,11 @@ The description of a single gene.
 | `release_date` | date | Date of this release |
 | `gene_name` | string | The canonical name of this gene (i.e., the name which the curators determine should be used by preference) |
 
-###Germline Delineation###
+### Germline Delineation
 
 The delineation of fields, and the numbering of codons, according to a particular scheme
 
-###V-gene Delineation###
+### V-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ The delineation of fields, and the numbering of codons, according to a particula
 | `cdr3_start` | integer | CDR3 start coord in Gene Description 'sequence' field |
 | `gene_name` | name | Canonical name of the gene to which this delineation applies |
 
-###D-gene Delineation###
+### D-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -99,7 +99,7 @@ The delineation of fields, and the numbering of codons, according to a particula
 | `d_start` | integer | Position of first D nucleotide in Gene Description 'sequence' field |
 | `d_end` | integer | End coordinate of the D segment in Gene Description 'sequence' field |
 
-###J-gene Delineation###
+### J-gene Delineation
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -111,12 +111,12 @@ The delineation of fields, and the numbering of codons, according to a particula
 | `gene_name` | name | Canonical name of the gene to which this delineation applies |
 
 
-##Supporting Sequences##
+## Supporting Sequences
 
 Sequences, either observed in repertoires or genomic in origin, leading to the inference of a gene.
 
 
-###Observed Sequence###
+### Observed Sequence
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ Sequences, either observed in repertoires or genomic in origin, leading to the i
 | `repository_id` | string | Id or serial number of the sequence within the repository |
 | `observation_type` | string | e.g. direct sequencing, inference from repertoire |
 
-###Genomic Sequence###
+### Genomic Sequence
 
 | Name | Type | Description |
 | --- | --- | --- |
