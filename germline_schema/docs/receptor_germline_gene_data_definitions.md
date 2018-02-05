@@ -1,6 +1,6 @@
 # Receptor Germline Gene Definitions
 
-Data Items required to document receptor germline genes, including the information from which it was inferred, and its delineation according to defferent numbering schemes.
+Data Items required to document receptor germline genes, including the information from which it was inferred, and its delineation according to different numbering schemes.
 
 ## Germline Set
 
