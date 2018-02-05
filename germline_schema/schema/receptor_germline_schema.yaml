@@ -256,10 +256,10 @@ Observed_Sequence:
             description: Version number of the sequence within the repository
         seq_start:
             type: integer
-            description: Start coordinate of the sequence of interest described in this record, within the sequence deposited
+            description: Start co-ordinate of the sequence of interest described in this record, within the sequence deposited
         seq_end:
             type: integer
-            description: End coordinate of the sequence of interest described in this record, within the sequence deposited
+            description: End co-ordinate of the sequence of interest described in this record, within the sequence deposited
         
 Genomic_Sequence:
     discriminator: AIRR
@@ -369,40 +369,40 @@ Gene_Description:
             description: Codon position of the first sequence symbol. Mandatory for J genes and V genes. Not used for D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing)
         5_prime_utr_start:
             type: integer
-            description: Start coordinate of 5 prime UTR
+            description: Start co-ordinate of 5 prime UTR
         5_prime_utr_end:
             type: integer
-            description: End coordinate of 5 prime UTR
+            description: End co-ordinate of 5 prime UTR
         l_region_start:
             type: integer
-            description: Start coordinate of L region
+            description: Start co-ordinate of L region
         l_region_end:
             type: integer
-            description: End coordinate of L region
+            description: End co-ordinate of L region
         v_rs_start:
             type: integer
-            description: Start coordinate of V recombination site (V-genes only)
+            description: Start co-ordinate of V recombination site (V-genes only)
         v_rs_end:
             type: integer
-            description: End coordinate of V recombination site (V-genes only)
+            description: End co-ordinate of V recombination site (V-genes only)
         3_prime_d_rs_start:
             type: integer
-            description: Start coordinate of 3 prime D recombination site (D-genes only)
+            description: Start co-ordinate of 3 prime D recombination site (D-genes only)
         3_prime_d_rs_end:
             type: integer
-            description: End coordinate of 3 prime D recombination site (D-genes only)
+            description: End co-ordinate of 3 prime D recombination site (D-genes only)
         5_prime_d_rs_start:
             type: integer
-            description: Start coordinate of 5 prime D recombination site (D-genes only)
+            description: Start co-ordinate of 5 prime D recombination site (D-genes only)
         5_prime_d_rs_end:
             type: integer
-            description: End coordinate of 5 prime D recombination site (D-genes only)
+            description: End co-ordinate of 5 prime D recombination site (D-genes only)
         j_rs_start:
             type: integer
-            description: Start coordinate of J recombination site (J-genes only)
+            description: Start co-ordinate of J recombination site (J-genes only)
         j_rs_end:
             type: integer
-            description: End coordinate of J recombination site (J-genes only)
+            description: End co-ordinate of J recombination site (J-genes only)
         paralogs:
             type: list of strings
             description: Canonical names of 0 or more paralogs
@@ -433,43 +433,43 @@ Gene_Delineation_V:
             description: e.g. Kabat, IMGT, Chothia
         v_start:
             type: integer
-            description: Coordinate of first V nucleotide in Gene Description 'sequence' field
+            description: Co-ordinate of first V nucleotide in Gene Description 'sequence' field
         v_end:
             type: integer
-            description: End coordinate of the V segment in Gene Description 'sequence' field
+            description: End co-ordinate of the V segment in Gene Description 'sequence' field
         fwr1_start:
             type: integer
-            description: FWR1 start coordinate in Gene Description 'sequence' field
+            description: FWR1 start co-ordinate in Gene Description 'sequence' field
         fwr1_end:
             type: integer
-            description: FWR1 end coordinate in Gene Description 'sequence' field
+            description: FWR1 end co-ordinate in Gene Description 'sequence' field
         cdr1_start:
             type: integer
-            description: CDR1 start coordinate in Gene Description 'sequence' field
+            description: CDR1 start co-ordinate in Gene Description 'sequence' field
         cdr1_end:
             type: integer
-            description: CDR1 end coordinate in Gene Description 'sequence' field
+            description: CDR1 end co-ordinate in Gene Description 'sequence' field
         fwr2_start:
             type: integer
-            description: FWR2 start coordinate in Gene Description 'sequence' field
+            description: FWR2 start co-ordinate in Gene Description 'sequence' field
         fwr2_end:
             type: integer
-            description: FWR2 end coordinate in Gene Description 'sequence' field
+            description: FWR2 end co-ordinate in Gene Description 'sequence' field
         cdr2_start:
             type: integer
-            description: CDR2 start coordinate in Gene Description 'sequence' field
+            description: CDR2 start co-ordinate in Gene Description 'sequence' field
         cdr2_end:
             type: integer
-            description: CDR2 end coordinate in Gene Description 'sequence' field
+            description: CDR2 end co-ordinate in Gene Description 'sequence' field
         fwr3_start:
             type: integer
-            description: FWR3 start coordinate in Gene Description 'sequence' field
+            description: FWR3 start co-ordinate in Gene Description 'sequence' field
         fwr3_end:
             type: integer
-            description: FWR3 end coordinate in Gene Description 'sequence' field
+            description: FWR3 end co-ordinate in Gene Description 'sequence' field
         cdr3_start:
             type: integer
-            description: CDR3 start coordinate in Gene Description 'sequence' field
+            description: CDR3 start co-ordinate in Gene Description 'sequence' field
         alignment:
             type: list of integers
             description: one number for each codon in the fields v_start to cdr3_start indicating the number of that codon according to the numbering of the delineation scheme
@@ -492,10 +492,10 @@ Gene_Delineation_D:
             description: e.g. Kabat, IMGT, Chothia
         d_start:
             type: integer
-            description: Coordinate of first D nucleotide in Gene Description 'sequence' field
+            description: Co-ordinate of first D nucleotide in Gene Description 'sequence' field
         d_end:
             type: integer
-            description: End coordinate of the D segment in Gene Description 'sequence' field
+            description: End co-ordinate of the D segment in Gene Description 'sequence' field
              
 
 Gene_Delineation_J:
@@ -515,13 +515,13 @@ Gene_Delineation_J:
             description: e.g. Kabat, IMGT, Chothia
         j_start:
             type: integer
-            description: Coordinate of first D nucleotide in Gene Description 'sequence' field
+            description: Co-ordinate of first D nucleotide in Gene Description 'sequence' field
         j_end:
             type: integer
-            description: End coordinate of the D segment in Gene Description 'sequence' field
+            description: End co-ordinate of the D segment in Gene Description 'sequence' field
         cdr3_end:
             type: integer
-            description: End coordinate of the CDR3 in Gene Description 'sequence' field
+            description: End co-ordinate of the CDR3 in Gene Description 'sequence' field
  
  
 Germline_Set:
