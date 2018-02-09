@@ -163,9 +163,9 @@ Inferred_Sequence:
             type: integer
             description: The number of records in the sequence dataset exactly matching this unmutated sequence
             completed_by: submitter
-        allelic_ratio:
+        allelic_percentage:
             type: number
-            description: The ratio at which this allele was observed in the sequence dataset, compared to other alleles
+            description: The percentage at which this allele was observed in the sequence dataset, compared to other alleles
             completed_by: submitter
         unique_ds:
             type: integer
@@ -179,9 +179,13 @@ Inferred_Sequence:
             type: integer
             description: Number of unique CDR3s found associated with the inferred V sequence
             completed_by: submitter
-        haplotype_evidence:
-            type: boolean
-            description: Is there evidence of differential expression between haplotypes
+        haplotyping_locus:
+            type: string
+            description: Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6)
+            completed_by: submitter
+        haplotyping_ratio:
+            type: string
+            description: Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40)
             completed_by: submitter
         nt_sequence:
             type: IUPAC nucleotide notation
@@ -250,9 +254,9 @@ Genotype:
             type: integer
             description: The number of records in the sequence dataset exactly matching this unmutated sequence
             completed_by: submitter
-        allelic_ratio:
+        allelic_percentage:
             type: number
-            description: The ratio at which this allele was observed in the sequence dataset, compared to other alleles
+            description: The percentage at which this allele was observed in the sequence dataset, compared to other alleles
             completed_by: submitter
         unique_ds:
             type: integer
@@ -266,9 +270,13 @@ Genotype:
             type: integer
             description: Number of unique CDR3s found associated with the inferred V sequence
             completed_by: submitter
-        haplotype_evidence:
-            type: boolean
-            description: Is there evidence of differential expression between haplotypes?
+        haplotyping_locus:
+            type: string
+            description: Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6)
+            completed_by: submitter
+        haplotyping_ratio:
+            type: string
+            description: Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40)
             completed_by: submitter
         nt_sequence:
             type: nucleotide sequence
