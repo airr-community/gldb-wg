@@ -16,6 +16,8 @@ The germline genes observed in a particular species or type
 | `release_date` | date | Date of this release |
 | `pub_ids` | list of PubMed ids | Peer-reviewed publications describing this dataset |
 | `organism` | string | Binomial designation of subject's species |
+| `confidence` | ['Red', 'Amber', 'Green'] | Curator's overall measure of confidence in the inferences contained in this set |
+| `gene_descriptions` | string | list of one or more Gene_Description records |
 | `notes` | string | None |
 
 ## Germline Description

@@ -7,7 +7,7 @@ Submission:
     description: Overall details of the submission
     type: object
     occurrence: single
-    version: 1.0
+    version: 1
     properties:
         submission_id:
             type: string
@@ -78,6 +78,14 @@ Repertoire:
             type: list of PubMed ids
             description: Peer-reviewed publications describing this dataset
             completed_by: submitter
+        forward_primer_set:
+            type: IUPAC nucleotide notatio
+            description: sequences of forward pcr primers used for sequence amplification
+            completed_by: submitter
+        reverse_primer_set:
+            type: IUPAC nucleotide notatio
+            description: sequences of reverse pcr primers used for sequence amplification
+            completed_by: submitter
         notes:
             type: text
             description: Notes relating to the dataset, for example covering details of origin or processing methods not described in publications or sequence depositions
@@ -104,7 +112,7 @@ Inference_Tool:
             completed_by: submitter
         tool_settings:
             type: string
-            description: Settings/configuration of the tool when used to provide the inferences
+            description: Settings/configuration of the tool when used to provide the inferences (automatically generated)
             completed_by: submitter
 
             
@@ -119,9 +127,33 @@ Inferred_Sequence:
             type: string
             description: Identifier of the allele, issued by the submitter (need not follow any particular format)
             completed_by: submitter
-        closest_IMGT:
+        subject_id: 
             type: string
-            description: The closest known IMGT allele, based on percent identity
+            description: Identifier of the subject from which this sequence was inferred (if inferred from more than one subject, please complete separate Inferred_Sequence records for each subject)
+            completed_by: submitter
+        sequences:
+            type: integer
+            description: Overall number of sequences assigned to this allele
+            completed_by: submitter
+        closest_reference:
+            type: string
+            description: The closest reference gene and allele, based on percent identity
+            completed_by: submitter
+        closest_host:
+            type: string
+            description: The closest reference gene and allele that is in the subject's inferred genotype, based on percent identity
+            completed_by: submitter
+        nt_diff:
+            type: integer
+            description: Number of nucleotides that differ between this sequence and the closest reference gene and allele
+            completed_by: submitter
+        aa_diff:
+            type: integer
+            description: Number of amino acids that differ between this sequence and the closest reference gene and allele
+            completed_by: submitter
+        cigar:
+            type: string
+            description: Alignment between this sequence and the closest reference gene and allele (CIGAR string)
             completed_by: submitter
         unmutated_frequency:
             type: number
@@ -151,14 +183,13 @@ Inferred_Sequence:
             type: boolean
             description: Is there evidence of differential expression between haplotypes
             completed_by: submitter
-        database_diff:
-            type: integer
-            description: x
-            completed_by: submitter
         nt_sequence:
-            type: IUPAC nucleotide notatio
+            type: IUPAC nucleotide notation
             description: The consensus sequence provided by the inference tool
             completed_by: submitter
+        phred_score:
+            type: string (phred format)
+            description: phred string (FASTQ format) for the consensus contig from which this nt sequence was inferred
         repository_name:
             type: string
             description: Name of the repository in which the sequence has been deposited
@@ -172,7 +203,7 @@ Inferred_Sequence:
             description: Version number of the sequence within the repository
             completed_by: submitter
         
-# Genotype
+# Genotype, for each subject referenced in the set of inferred sequences
 Genotype:
     discriminator: AIRR
     description: Details of the complete genotype from which inferred sequences were drawn
@@ -183,9 +214,33 @@ Genotype:
             type: string
             description: Identifier of the allele (either IMGT, or the name assigned by the submitter to an inferred gene)
             completed_by: submitter
-        closest_IMGT:
+        subject_id: 
             type: string
-            description: The closest known IMGT allele, based on percent identity
+            description: Identifier of the subject from which this genotype was inferred (please provide separate genotypes for each subject)
+            completed_by: submitter
+        sequences:
+            type: integer
+            description: Overall number of sequences assigned to this allele
+            completed_by: submitter
+        closest_reference:
+            type: string
+            description: For inferred alleles, the closest reference gene and allele, based on percent identity
+            completed_by: submitter
+        closest_host:
+            type: string
+            description: For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, based on percent identity
+            completed_by: submitter
+        nt_diff:
+            type: integer
+            description: For inferred alleles, the number of nucleotides that differ between this sequence and the closest reference gene and allele
+            completed_by: submitter
+        aa_diff:
+            type: integer
+            description: For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele
+            completed_by: submitter
+        cigar:
+            type: string
+            description: For inferred alleles, the alignment between this sequence and the closest reference gene and allele (CIGAR string)
             completed_by: submitter
         unmutated_frequency:
             type: number
@@ -215,14 +270,31 @@ Genotype:
             type: boolean
             description: Is there evidence of differential expression between haplotypes?
             completed_by: submitter
-        database_diff:
-            type: integer
-            description: x
-            completed_by: submitter
         nt_sequence:
             type: nucleotide sequence
             description: The consensus sequence provided by the inference tool
             completed_by: submitter
+            
+SoftwareProcessing:
+    discriminator: AIRR
+    type: object
+    properties:
+        software_name:
+            type: string
+            description: Name of the tool used to produce these inferences
+        software_version:
+            type: string
+            description: Version number and / or date
+        reference_germline_set:
+            type: string
+            description: Name or description of the germline set used by the tool
+        reference_germline_version:
+            type: string
+            description: Version number and / or date
+        software_settings:
+            type: dictionary
+            description: Dictionary of setting types and values specific to this software tool
+
     
 Observed_Sequence:
     discriminator: AIRR
@@ -554,7 +626,14 @@ Germline_Set:
         organism:
             type: string
             description: Binomial designation of subject's species
+        confidence:
+            type: [Red, Amber, Green]
+            description: Curator's overall measure of confidence in the inferences contained in this set
+        gene_descriptions:
+            type: string
+            description: list of one or more Gene_Description records
         notes:
             type: string
             description: 
-            
+  
+
