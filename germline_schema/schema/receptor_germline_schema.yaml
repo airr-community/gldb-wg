@@ -7,7 +7,7 @@ Submission:
     description: Overall details of the submission
     type: object
     occurrence: single
-    version: 1
+    version: 1.1
     properties:
         submission_id:
             type: string
@@ -45,6 +45,10 @@ Submission:
             type: string
             description: Information on the ethnicity/population/race of the sample from which the submitted allele was inferred (if not known, use "UN")
             completed_by: submitter
+        IARC_tracking:
+            type: list of timestamped strings
+            description: Notes from IARC tracking overall progress of this submission, eg additional info requested, when reviewed, etc
+            completed_by: IARC
 
 
 # Repertoire Dataset
@@ -206,7 +210,11 @@ Inferred_Sequence:
             type: string
             description: Version number of the sequence within the repository
             completed_by: submitter
-        
+        IARC_tracking:
+            type: list of timestamped strings
+            description: Notes from IARC tracking overall progress of this submission, eg additional info requested, when reviewed, etc
+            completed_by: IARC
+       
 # Genotype, for each subject referenced in the set of inferred sequences
 Genotype:
     discriminator: AIRR
