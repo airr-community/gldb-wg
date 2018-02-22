@@ -8,14 +8,14 @@ in analysis.
 
 Inference Tool providers are encouraged to:
 
-- Provide as much of the information listed below, in the format specified, as is reasonable, given the cabaility and approach of their tools
+- Provide as much of the information listed below, in the format specified, as is reasonable, given the capability and approach of their tools
 - Provide any additional information that is likely to be helpful to reviewers, in an equivalent format.
 
 The information is structured into three groups, covering information on:
 
 - Each inferred allele
 - The entire genotype from which inferences were made
-- The identity, version and configuration of the tool used to construct the inferences
+- The identity, version and configuration of the tool used to construct the inferences.
 
 These are covered in more detail below.
 
