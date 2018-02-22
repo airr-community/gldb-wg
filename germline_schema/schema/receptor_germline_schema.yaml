@@ -58,36 +58,44 @@ Repertoire:
     type: object
     occurrence: single
     properties:
+        pub_ids:
+            type: list of PubMed ids
+            description: PubMed ifs of peer-reviewed publications describing this dataset
+            completed_by: submitter
         repository_name:
             type: string
-            description: Name of the repository holding the dataset
+            description: Name of the repository holding the sequence dataset
             completed_by: submitter
         repository_id:
             type: string
-            description: Id or serial number of the dataset within the repository
+            description: Id or serial number of the sequence dataset within the repository
             completed_by: submitter
         dataset_url:
             type: url
-            description: URL of the dataset (if any)
+            description: URL of the sequence dataset (if any)
             completed_by: submitter
         dataset_doi:
             type: doi
-            description: doi of the dataset (if any)
+            description: doi of the sequence dataset (if any)
             completed_by: submitter
         miarr_compliant:
             type: boolean
             description: TRUE if the repertoire dataset and associated metadata is in miairr format
             completed_by: submitter
-        pub_ids:
-            type: list of PubMed ids
-            description: Peer-reviewed publications describing this dataset
+        sequencing_platform:
+            type: string
+            description: Designation of sequencing instrument used
+            completed_by: submitter
+        read_length:
+            type: string
+            description: Read length in bases for each direction
             completed_by: submitter
         forward_primer_set:
-            type: IUPAC nucleotide notatio
+            type: IUPAC nucleotide notation
             description: sequences of forward pcr primers used for sequence amplification
             completed_by: submitter
         reverse_primer_set:
-            type: IUPAC nucleotide notatio
+            type: IUPAC nucleotide notation
             description: sequences of reverse pcr primers used for sequence amplification
             completed_by: submitter
         notes:
@@ -126,14 +134,18 @@ Inferred_Sequence:
     description: Details of inferred sequences submitted for IARC approval
     type: object
     occurrence: multiple
+    subject_id: 
+        type: string
+        description: Identifier of the subject from which these sequences were inferred
+        completed_by: submitter
+    genotyope_id: 
+        type: string
+        description: Identifier of the genotype from which these sequences were inferred
+        completed_by: submitter
     properties:
         sequence_id:
             type: string
             description: Identifier of the allele, issued by the submitter (need not follow any particular format)
-            completed_by: submitter
-        subject_id: 
-            type: string
-            description: Identifier of the subject from which this sequence was inferred (if inferred from more than one subject, please complete separate Inferred_Sequence records for each subject)
             completed_by: submitter
         sequences:
             type: integer
@@ -221,6 +233,14 @@ Genotype:
     description: Details of the complete genotype from which inferred sequences were drawn
     type: object
     occurrence: multiple
+    genotyope_id: 
+        type: string
+        description: Identifier of this genotype
+        completed_by: submitter
+    subject_id: 
+        type: string
+        description: Identifier of the subject from which this genotype was inferred
+        completed_by: submitter
     properties:
         sequence_id:
             type: string

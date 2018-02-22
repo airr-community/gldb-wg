@@ -1,0 +1,51 @@
+# Inference Tool Output To Support Inferred Gene Submissions #
+
+The AIRR Germline Database Working Group believes that the submission and review of inferred alleles would be facilitated by the automated 
+provision of supporting information from inference tools. We see benefit in identifying and codifying information that is likely to be of 
+value; however we recognise that tools vary in the approach and algorithms employed: therefore not every tool can be expected to provide all 
+the identified information, and tools are likely to provide other information in addition to that listed here which would also be helpful
+in analysis.
+
+Inference Tool providers are encouraged to:
+
+- Provide as much of the information listed below, in the format specified, as is reasonable, given the cabaility and approach of their tools
+- Provide any additional information that is likely to be helpful to reviewers, in an equivalent format.
+
+The information is structured into three groups, covering information on:
+
+- Each inferred allele
+- The entire genotype from which inferences were made
+- The identity, version and configuration of the tool used to construct the inferences
+
+These are covered in more detail below.
+
+## Information on Each Inferred Allele ##
+
+This should be provided in CSV format.
+
+| Name | Type | Description |
+| --- | --- | --- |
+{%- for field in Inferred_Sequence.properties %}
+| `{{ field }}` | {{ Inferred_Sequence.properties[field].type }} | {{  Inferred_Sequence.properties[field].description }} |
+{%- endfor %}
+ 
+## Information on Entire Genotyope Used for Inference ##
+
+This should be provided in CSV format.
+
+| Name | Type | Description |
+| --- | --- | --- |
+{%- for field in Genotype.properties %}
+| `{{ field }}` | {{ Genotype.properties[field].type }} | {{  Genotype.properties[field].description }} |
+{%- endfor %}
+
+## Tool And Settings ##
+
+This should be provided in yaml format (see SoftwareProcessing schema in ../schema/receptor_germline_schema.yaml)
+
+| Name | Type | Description |
+| --- | --- | --- |
+{%- for field in SoftwareProcessing.properties %}
+| `{{ field }}` | {{ SoftwareProcessing.properties[field].type }} | {{  SoftwareProcessing.properties[field].description }} |
+{%- endfor %}
+
