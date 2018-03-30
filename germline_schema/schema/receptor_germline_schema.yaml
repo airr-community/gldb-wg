@@ -82,6 +82,10 @@ Repertoire:
             type: boolean
             description: TRUE if the repertoire dataset and associated metadata is in miairr format
             completed_by: submitter
+        miairr_link:
+            type: url
+            description: Link to miairr metadata, if available
+            completed_by: submitter
         sequencing_platform:
             type: string
             description: Designation of sequencing instrument used
@@ -100,12 +104,38 @@ Repertoire:
             completed_by: submitter
         notes:
             type: text
-            description: Notes relating to the dataset, for example covering details of origin or processing methods not described in publications or sequence depositions
+            description: Notes relating to the dataset, for example covering details of origin or processing methods not described in publications or sequence depositions. Please provide details of cell types sequenced, or indicate clearly where this and related biosample information can be found.
             completed_by: submitter
         IARC_repertoire_id:
             type: string
             description: Unique ID of the repertoire dataset, allocated by IARC
             completed_by: IARC
+            
+
+# Inference Tool Overview
+Inference_Tool_Overview:
+    discriminator: AIRR
+    description: Header for submission of tool information
+    type: object
+    occurrence: single
+    properties:
+        tool_name:
+            type: string
+            description: Name of the inference tool
+            completed_by: submitter
+        tool_version:
+            type: string
+            description: Version of the inference tool for which this information was submitted
+            completed_by: submitter
+        submitter_name:
+            type: string
+            description: Name of the person submitting tool information
+            completed_by: submitter
+        submitter_address:
+            type: email address
+            description: Email address of the person submitting tool information
+            completed_by: submitter
+
             
 # Inference Tool
 Inference_Tool:
@@ -121,6 +151,10 @@ Inference_Tool:
         tool_version:
             type: string
             description: Version of the inference tool
+            completed_by: submitter
+        starting_database:
+            type: string
+            description: Starting germline database used by the tool (please specify where and when it was obtained, name, and version id, if any)
             completed_by: submitter
         tool_settings:
             type: string
@@ -153,23 +187,27 @@ Inferred_Sequence:
             completed_by: submitter
         closest_reference:
             type: string
-            description: The closest reference gene and allele, based on percent identity
+            description: The closest reference gene and allele, as inferred by the tool
             completed_by: submitter
         closest_host:
             type: string
-            description: The closest reference gene and allele that is in the subject's inferred genotype, based on percent identity
+            description: The closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool
             completed_by: submitter
         nt_diff:
             type: integer
             description: Number of nucleotides that differ between this sequence and the closest reference gene and allele
             completed_by: submitter
+        nt_substitutions:
+            type: string
+            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele
+            completed_by: submitter
         aa_diff:
             type: integer
             description: Number of amino acids that differ between this sequence and the closest reference gene and allele
             completed_by: submitter
-        cigar:
+        aa_substitutions:
             type: string
-            description: Alignment between this sequence and the closest reference gene and allele (CIGAR string)
+            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele
             completed_by: submitter
         unmutated_frequency:
             type: number

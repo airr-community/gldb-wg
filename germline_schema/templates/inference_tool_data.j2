@@ -1,51 +1,51 @@
-# Inference Tool Output To Support Inferred Gene Submissions #
+# Inference Tool Output For Inferred Gene Submissions #
 
-The AIRR Germline Database Working Group believes that the submission and review of inferred alleles would be facilitated by the automated 
-provision of supporting information from inference tools. We see benefit in identifying and codifying information that is likely to be of 
-value; however we recognise that tools vary in the approach and algorithms employed: therefore not every tool can be expected to provide all 
-the identified information, and tools are likely to provide other information in addition to that listed here which would also be helpful
-in analysis.
+The Inferred Allele Review Committee expects to review a large number of submissions. To help with this work, we would like to understand
+the information provided by inference tools as part of each inferred novel allele. 
 
-Inference Tool providers are encouraged to:
+IARC recognises that tools will vary in the approach and algorithms employed: therefore we indicate here the nature of the information that 
+is of value to the Committee, and ask tool providers to say whether or not each item is provided by their tool, and to provide any notes
+on the way or form in which it is provided. We also ask tool providers to list any additional information provided by their tool which is 
+likely to be helpful.
 
-- Provide as much of the information listed below, in the format specified, as is reasonable, given the capability and approach of their tools
-- Provide any additional information that is likely to be helpful to reviewers, in an equivalent format.
+Please provide information on your tool by completing the tables below. These cover:
 
-The information is structured into three groups, covering information on:
+- Overview information on the tool
+- Information provided by the tool for each inferred allele
+- Information provided by the tool on the entire genotype from which inferences were made
+- Information on the identity, version and configuration of the tool used to construct the inferences.
 
-- Each inferred allele
-- The entire genotype from which inferences were made
-- The identity, version and configuration of the tool used to construct the inferences.
+## Overview Information ##
 
-These are covered in more detail below.
+| Item | Description | Response |
+| --- | --- | --- |
+{%- for field in Inference_Tool_Overview.properties %}
+| `{{ field }}` | {{ Inference_Tool_Overview.properties[field].description }} |                                           |
+{%- endfor %}
 
 ## Information on Each Inferred Allele ##
 
-This should be provided in CSV format.
-
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Description | Provided by tool? | Comments |
+| --- | --- | --- | --- |
 {%- for field in Inferred_Sequence.properties %}
-| `{{ field }}` | {{ Inferred_Sequence.properties[field].type }} | {{  Inferred_Sequence.properties[field].description }} |
+| `{{ field }}` |  {{  Inferred_Sequence.properties[field].description }} |          |                                     |
 {%- endfor %}
+|    | Can the above information be provided by the tool in .csv or similar format? |   |    |
  
 ## Information on Entire Genotyope Used for Inference ##
 
-This should be provided in CSV format.
-
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Description | Provided by tool? | Comments |
+| --- | --- | --- | --- |
 {%- for field in Genotype.properties %}
-| `{{ field }}` | {{ Genotype.properties[field].type }} | {{  Genotype.properties[field].description }} |
+| `{{ field }}` | {{ Genotype.properties[field].description }} |          |                                     |
 {%- endfor %}
+|    | Can the above information be provided by the tool in .csv or similar format? |   |    |
 
 ## Tool And Settings ##
 
-This should be provided in yaml format (see SoftwareProcessing schema in ../schema/receptor_germline_schema.yaml)
-
-| Name | Type | Description |
-| --- | --- | --- |
+| Name | Description | Provided by tool? | Comments |
+| --- | --- | --- | --- |
 {%- for field in SoftwareProcessing.properties %}
 | `{{ field }}` | {{ SoftwareProcessing.properties[field].type }} | {{  SoftwareProcessing.properties[field].description }} |
 {%- endfor %}
-
+|    | Can the above information be generated automatically by the tool in .csv or similar format? |   |    |
