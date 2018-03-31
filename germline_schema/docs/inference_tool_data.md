@@ -40,6 +40,7 @@ Please provide information on your tool by completing the tables below. These co
 | `aa_substitutions` |  List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele |          |                                     |
 | `unmutated_frequency` |  The proportion of records in the sequence dataset matching this unmutated sequence |          |                                     |
 | `unmutated_sequences` |  The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
+| `unmutated_umis` |  The number of molecules (identified by UMIs) exactly matching this unmutated sequence |          |                                     |
 | `allelic_percentage` |  The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
 | `unique_ds` |  Number of unique D sequences found associated with the inferred V sequence |          |                                     |
 | `unique_js` |  Number of unique J sequences found associated with the inferred V sequence |          |                                     |
@@ -72,6 +73,7 @@ submitted alleles, allows the submitted alleles to be viewed in context.
 | `aa_substitutions` | List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele |          |                                     |
 | `unmutated_frequency` | The proportion of records in the sequence dataset matching this unmutated sequence |          |                                     |
 | `unmutated_sequences` | The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
+| `unmutated_umis` | The number of molecules (identified by UMIs) exactly matching this unmutated sequence |          |                                     |
 | `allelic_percentage` | The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
 | `unique_ds` | Number of unique D sequences found associated with the inferred V sequence |          |                                     |
 | `unique_js` | Number of unique J sequences found associated with the inferred V sequence |          |                                     |

@@ -216,6 +216,9 @@ Inferred_Sequence:
         unmutated_sequences:
             type: integer
             description: The number of records in the sequence dataset exactly matching this unmutated sequence
+        unmutated_umis:
+            type: integer
+            description: The number of molecules (identified by UMIs) exactly matching this unmutated sequence
             completed_by: submitter
         allelic_percentage:
             type: number
@@ -323,6 +326,10 @@ Genotype:
         unmutated_sequences:
             type: integer
             description: The number of records in the sequence dataset exactly matching this unmutated sequence
+            completed_by: submitter
+        unmutated_umis:
+            type: integer
+            description: The number of molecules (identified by UMIs) exactly matching this unmutated sequence
             completed_by: submitter
         allelic_percentage:
             type: number
