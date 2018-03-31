@@ -60,7 +60,7 @@ Repertoire:
     properties:
         pub_ids:
             type: list of PubMed ids
-            description: PubMed ifs of peer-reviewed publications describing this dataset
+            description: PubMed ids of peer-reviewed publications describing this dataset
             completed_by: submitter
         repository_name:
             type: string
@@ -80,11 +80,11 @@ Repertoire:
             completed_by: submitter
         miarr_compliant:
             type: boolean
-            description: TRUE if the repertoire dataset and associated metadata is in miairr format
+            description: TRUE if the repertoire dataset and associated metadata is in MiAIRR format
             completed_by: submitter
         miairr_link:
             type: url
-            description: Link to miairr metadata, if available
+            description: Link to MiAIRR metadata, if available
             completed_by: submitter
         sequencing_platform:
             type: string
@@ -304,14 +304,18 @@ Genotype:
             type: integer
             description: For inferred alleles, the number of nucleotides that differ between this sequence and the closest reference gene and allele
             completed_by: submitter
+        nt_substitutions:
+            type: string
+            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele
+            completed_by: submitter            
         aa_diff:
             type: integer
             description: For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele
             completed_by: submitter
-        cigar:
+        aa_substitutions:
             type: string
-            description: For inferred alleles, the alignment between this sequence and the closest reference gene and allele (CIGAR string)
-            completed_by: submitter
+            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele
+            completed_by: submitter            
         unmutated_frequency:
             type: number
             description: The proportion of records in the sequence dataset matching this unmutated sequence
