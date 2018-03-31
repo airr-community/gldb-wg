@@ -54,6 +54,6 @@ of record. Generating this information from the tool itself ensures that it is a
 | Name | Description | Provided by tool? | Comments |
 | --- | --- | --- | --- |
 {%- for field in SoftwareProcessing.properties %}
-| `{{ field }}` | {{ SoftwareProcessing.properties[field].type }} | {{  SoftwareProcessing.properties[field].description }} |
+| `{{ field }}` | {{ SoftwareProcessing.properties[field].description }} |          |                                     |
 {%- endfor %}
 |    | Can the above information be generated automatically by the tool in .csv or similar format? |   |    |

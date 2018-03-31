@@ -88,9 +88,9 @@ of record. Generating this information from the tool itself ensures that it is a
 
 | Name | Description | Provided by tool? | Comments |
 | --- | --- | --- | --- |
-| `software_name` | string | Name of the tool used to produce these inferences |
-| `software_version` | string | Version number and / or date |
-| `reference_germline_set` | string | Name or description of the germline set used by the tool |
-| `reference_germline_version` | string | Version number and / or date |
-| `software_settings` | dictionary | Dictionary of setting types and values specific to this software tool |
+| `software_name` | Name of the tool used to produce these inferences |          |                                     |
+| `software_version` | Version number and / or date |          |                                     |
+| `reference_germline_set` | Name or description of the germline set used by the tool |          |                                     |
+| `reference_germline_version` | Version number and / or date |          |                                     |
+| `software_settings` | Dictionary of setting types and values specific to this software tool |          |                                     |
 |    | Can the above information be generated automatically by the tool in .csv or similar format? |   |    |
