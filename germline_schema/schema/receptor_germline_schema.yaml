@@ -500,9 +500,9 @@ Gene_Description:
         inference class:
             type: [Genomic and Rearranged, Genomic Only, Rearranged Only]
             description: Class of sequence(s) from which this gene was inferred
-        confidence:
-            type: [Red, Amber, Green]
-            description: Curator's measure of confidence in the inference of this gene, possibly related to its inference class
+        affirmation_level:
+            type: [1,2,3]
+            description: Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more)
         status:
             type: [Active, Deprecated, Novel]
             description: Deprecated sequences are those that have been superceded or removed because of errors or uncertainty. Novel sequences are those that have not been fully scrutinised. Others are Active.
@@ -711,9 +711,6 @@ Germline_Set:
         organism:
             type: string
             description: Binomial designation of subject's species
-        confidence:
-            type: [Red, Amber, Green]
-            description: Curator's overall measure of confidence in the inferences contained in this set
         gene_descriptions:
             type: string
             description: list of one or more Gene_Description records

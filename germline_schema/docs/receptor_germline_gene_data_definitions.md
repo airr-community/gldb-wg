@@ -16,7 +16,6 @@ The germline genes observed in a particular species or type
 | `release_date` | date | Date of this release |
 | `pub_ids` | list of PubMed ids | Peer-reviewed publications describing this dataset |
 | `organism` | string | Binomial designation of subject's species |
-| `confidence` | ['Red', 'Amber', 'Green'] | Curator's overall measure of confidence in the inferences contained in this set |
 | `gene_descriptions` | string | list of one or more Gene_Description records |
 | `notes` | string | None |
 
@@ -40,7 +39,7 @@ The description of a single gene.
 | `region` | ['V', 'D', 'J', 'C'] | Gene region |
 | `functionality` | ['Functional', 'Nonfunctional'] | Functionality |
 | `inference class` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Class of sequence(s) from which this gene was inferred |
-| `confidence` | ['Red', 'Amber', 'Green'] | Curator's measure of confidence in the inference of this gene, possibly related to its inference class |
+| `affirmation_level` | [1, 2, 3] | Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more) |
 | `status` | ['Active', 'Deprecated', 'Novel'] | Deprecated sequences are those that have been superceded or removed because of errors or uncertainty. Novel sequences are those that have not been fully scrutinised. Others are Active. |
 | `deprecation_reason` | string | If deprecated, the reason for deprecation |
 | `gene_subgroup` | string | Gene subgroup (family), as identified for this species |
