@@ -294,11 +294,11 @@ Genotype:
             completed_by: submitter
         closest_reference:
             type: string
-            description: For inferred alleles, the closest reference gene and allele, based on percent identity
+            description: For inferred alleles, the closest reference gene and allele, as inferred by the tool
             completed_by: submitter
         closest_host:
             type: string
-            description: For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, based on percent identity
+            description: For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool
             completed_by: submitter
         nt_diff:
             type: integer
