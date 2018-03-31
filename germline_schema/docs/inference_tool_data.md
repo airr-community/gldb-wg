@@ -64,8 +64,8 @@ submitted alleles, allows the submitted alleles to be viewed in context.
 | `sequence_id` | Identifier of the allele (either IMGT, or the name assigned by the submitter to an inferred gene) |          |                                     |
 | `subject_id` | Identifier of the subject from which this genotype was inferred (please provide separate genotypes for each subject) |          |                                     |
 | `sequences` | Overall number of sequences assigned to this allele |          |                                     |
-| `closest_reference` | For inferred alleles, the closest reference gene and allele, based on percent identity |          |                                     |
-| `closest_host` | For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, based on percent identity |          |                                     |
+| `closest_reference` | For inferred alleles, the closest reference gene and allele, as inferred by the tool |          |                                     |
+| `closest_host` | For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool |          |                                     |
 | `nt_diff` | For inferred alleles, the number of nucleotides that differ between this sequence and the closest reference gene and allele |          |                                     |
 | `nt_substitutions` | List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele |          |                                     |
 | `aa_diff` | For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele |          |                                     |
