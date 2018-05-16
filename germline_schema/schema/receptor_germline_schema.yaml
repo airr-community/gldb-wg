@@ -3,11 +3,11 @@
 #
 # Submission Details
 Submission:
-    discriminator: AIRR
+    discriminator: AIR3
     description: Overall details of the submission
     type: object
     occurrence: single
-    version: 1.1
+    version: 1.2
     properties:
         submission_id:
             type: string
@@ -454,10 +454,14 @@ Genomic_Sequence:
     
 Gene_Description:
     discriminator: AIRR
+    version: 1.3
     description: Details of a gene which is inferred from the observation of one or more sequences
     type: object
     occurrence: multiple
     properties:
+        description_id:
+            type: string
+            description: Unique identifier of this gene description
         author:
             type: name
             description: Corresponding author
@@ -497,7 +501,7 @@ Gene_Description:
         functionality:
             type: [Functional,Nonfunctional]
             description: Functionality
-        inference class:
+        inference_class:
             type: [Genomic and Rearranged, Genomic Only, Rearranged Only]
             description: Class of sequence(s) from which this gene was inferred
         affirmation_level:
@@ -521,13 +525,19 @@ Gene_Description:
         sequence:
             type: IUPAC nucleotide notation
             description: nt sequence of the gene. This should cover the full length that is available, including where possible 5' UTR and lead-in for V-gene sequences 
+        coding_seq_imgt:
+            type: sequence
+            description: nucleotide sequence of the coding region, aligned, in the case of a V-gene, with the IMGT numbering scheme
         codon_frame:
             type: [1,2,3]
-            description: Codon position of the first sequence symbol. Mandatory for J genes and V genes. Not used for D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing)
-        5_prime_utr_start:
+            description: Codon position of the first sequence symbol in coding_seq_imgt. Mandatory for J genes. Not used for V or D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing)
+        j_cdr3_end:
+            type: integer
+            description: In the case of a J-gene, the co-ordinate (in coding_seq_imgt) of the first nucelotide of the conserved PHE or TRP (IMGT codon position 118)
+        utr_5_prime_start:
             type: integer
             description: Start co-ordinate of 5 prime UTR
-        5_prime_utr_end:
+        utr_5_prime_end:
             type: integer
             description: End co-ordinate of 5 prime UTR
         l_region_start:
@@ -542,16 +552,16 @@ Gene_Description:
         v_rs_end:
             type: integer
             description: End co-ordinate of V recombination site (V-genes only)
-        3_prime_d_rs_start:
+        d_rs_3_prime_start:
             type: integer
             description: Start co-ordinate of 3 prime D recombination site (D-genes only)
-        3_prime_d_rs_end:
+        d_rs_3_prime_end:
             type: integer
             description: End co-ordinate of 3 prime D recombination site (D-genes only)
-        5_prime_d_rs_start:
+        d_rs_5_prime_start:
             type: integer
             description: Start co-ordinate of 5 prime D recombination site (D-genes only)
-        5_prime_d_rs_end:
+        d_rs_5_prime_end:
             type: integer
             description: End co-ordinate of 5 prime D recombination site (D-genes only)
         j_rs_start:
@@ -719,3 +729,18 @@ Germline_Set:
             description: 
   
 
+Acknowledgements:
+    discriminator: AIRR
+    description: List of individuals whose contribution to this work should be acknowledged
+    type: object
+    occurrence: multiple
+    properties:
+        name:
+            type: name
+            description: Full name of individual
+        institution_name:
+            type: string
+            description: Individual's department and institution name
+        ORCID_id:
+            type: ORCID ID
+            description: Individual's ORCID Id, if available

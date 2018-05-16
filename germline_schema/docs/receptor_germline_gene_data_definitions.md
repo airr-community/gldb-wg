@@ -25,6 +25,7 @@ The description of a single gene.
 
 | Name | Type | Description |
 | --- | --- | --- |
+| `description_id` | string | Unique identifier of this gene description |
 | `author` | name | Corresponding author |
 | `lab_name` | string | Department of corresponding author |
 | `lab_address` | string | Institutional address of corresponding author |
@@ -38,7 +39,7 @@ The description of a single gene.
 | `locus` | ['Heavy', 'Light-Kappa or Light-Lambda for B-cell sequences', 'or Alpha', 'Beta or Gamma for T-cell sequences'] | Gene locus |
 | `region` | ['V', 'D', 'J', 'C'] | Gene region |
 | `functionality` | ['Functional', 'Nonfunctional'] | Functionality |
-| `inference class` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Class of sequence(s) from which this gene was inferred |
+| `inference_class` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Class of sequence(s) from which this gene was inferred |
 | `affirmation_level` | [1, 2, 3] | Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more) |
 | `status` | ['Active', 'Deprecated', 'Novel'] | Deprecated sequences are those that have been superceded or removed because of errors or uncertainty. Novel sequences are those that have not been fully scrutinised. Others are Active. |
 | `deprecation_reason` | string | If deprecated, the reason for deprecation |
@@ -46,17 +47,19 @@ The description of a single gene.
 | `subgroup_designation` | string | Gene designation within this subgroup |
 | `allele_designation` | string | Allele designation |
 | `sequence` | IUPAC nucleotide notation | nt sequence of the gene. This should cover the full length that is available, including where possible 5' UTR and lead-in for V-gene sequences |
-| `codon_frame` | [1, 2, 3] | Codon position of the first sequence symbol. Mandatory for J genes and V genes. Not used for D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing) |
-| `5_prime_utr_start` | integer | Start co-ordinate of 5 prime UTR |
-| `5_prime_utr_end` | integer | End co-ordinate of 5 prime UTR |
+| `coding_seq_imgt` | sequence | nucleotide sequence of the coding region, aligned, in the case of a V-gene, with the IMGT numbering scheme |
+| `codon_frame` | [1, 2, 3] | Codon position of the first sequence symbol in coding_seq_imgt. Mandatory for J genes. Not used for V or D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing) |
+| `j_cdr3_end` | integer | In the case of a J-gene, the co-ordinate (in coding_seq_imgt) of the first nucelotide of the conserved PHE or TRP (IMGT codon position 118) |
+| `utr_5_prime_start` | integer | Start co-ordinate of 5 prime UTR |
+| `utr_5_prime_end` | integer | End co-ordinate of 5 prime UTR |
 | `l_region_start` | integer | Start co-ordinate of L region |
 | `l_region_end` | integer | End co-ordinate of L region |
 | `v_rs_start` | integer | Start co-ordinate of V recombination site (V-genes only) |
 | `v_rs_end` | integer | End co-ordinate of V recombination site (V-genes only) |
-| `3_prime_d_rs_start` | integer | Start co-ordinate of 3 prime D recombination site (D-genes only) |
-| `3_prime_d_rs_end` | integer | End co-ordinate of 3 prime D recombination site (D-genes only) |
-| `5_prime_d_rs_start` | integer | Start co-ordinate of 5 prime D recombination site (D-genes only) |
-| `5_prime_d_rs_end` | integer | End co-ordinate of 5 prime D recombination site (D-genes only) |
+| `d_rs_3_prime_start` | integer | Start co-ordinate of 3 prime D recombination site (D-genes only) |
+| `d_rs_3_prime_end` | integer | End co-ordinate of 3 prime D recombination site (D-genes only) |
+| `d_rs_5_prime_start` | integer | Start co-ordinate of 5 prime D recombination site (D-genes only) |
+| `d_rs_5_prime_end` | integer | End co-ordinate of 5 prime D recombination site (D-genes only) |
 | `j_rs_start` | integer | Start co-ordinate of J recombination site (J-genes only) |
 | `j_rs_end` | integer | End co-ordinate of J recombination site (J-genes only) |
 | `paralogs` | list of strings | Canonical names of 0 or more paralogs |
