@@ -106,10 +106,6 @@ Repertoire:
             type: text
             description: Notes relating to the dataset, for example covering details of origin or processing methods not described in publications or sequence depositions. Please provide details of cell types sequenced, or indicate clearly where this and related biosample information can be found.
             completed_by: submitter
-        IARC_repertoire_id:
-            type: string
-            description: Unique ID of the repertoire dataset, allocated by IARC
-            completed_by: IARC
             
 
 # Inference Tool Overview
