@@ -164,7 +164,7 @@ def copystyles(c1, c2):
 
 def paste_cell(ws, row, col, value, copy_style):
     nc = ws.cell(row=row, column=col)
-    if isinstance(value, str) and len(value) > 60:
+    if isinstance(value, str) and len(value) > 60 and '\n' not in value:
         value = textwrap.fill(value, 60)
         nc.alignment = Alignment(wrapText=True)
     nc.value = value

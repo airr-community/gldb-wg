@@ -29,10 +29,10 @@ The description of a single gene.
 | `author` | name | Corresponding author |
 | `lab_name` | string | Department of corresponding author |
 | `lab_address` | string | Institutional address of corresponding author |
-| `release_version` | number | Version number of this record, allocated automatically |
+| `release_version` | number | Version number of this record, updated whenever a revised version is published |
 | `release_description` | string | Brief descriptive notes of the reason for this release and the changes embodied |
 | `release_date` | date | Date of this release |
-| `pub_ids` | list of PubMed ids | Peer-reviewed publications describing this dataset |
+| `pub_ids` | list of PubMed ids | Peer-reviewed publications describing this inference |
 | `organism` | string | Binomial designation of subject's species |
 | `gene_name` | string | The canonical name of this gene (i.e., the name which the curators determine should be used by preference) |
 | `alt_names` | strings | Alternative names for this gene |

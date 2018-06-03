@@ -469,7 +469,7 @@ Gene_Description:
             description: Institutional address of corresponding author
         release_version:
             type: number
-            description: Version number of this record, allocated automatically
+            description: Version number of this record, updated whenever a revised version is published
         release_description:
             type: string
             description: Brief descriptive notes of the reason for this release and the changes embodied
@@ -478,7 +478,7 @@ Gene_Description:
             description: Date of this release
         pub_ids:
             type: list of PubMed ids
-            description: Peer-reviewed publications describing this dataset
+            description: Peer-reviewed publications describing this inference
         organism:
             type: string
             description: Binomial designation of subject's species
