@@ -8,6 +8,7 @@ The AIRR Germline Database Working Group is defining data and formats that will 
 The required data elements are defined in a [schema](schema/receptor_germline_schema.yaml). The schema is used to create the following documents:
 
 - A [Submission Sheet](docs/iarc_submission_sheet.xlsx), used to submit alleles inferred from germline repertoires to IARC for consideration.
+- An [Inferred Sequence Documentation Sheet] (docs/inferred_sequence_documentation_sheet.xlsx), used by IARC to document inferred genes that it has published.
 - [Guidelines for Inference Tool Developers](docs/inference_tool_data.md) that are intended to facilitate the provision of information that will support submissions, in a convenient format.
 - A [Germline Description](docs/receptor_germline_gene_data_definitions.md), defining the data elements underlying the definition of a germline gene and a germline set, in human-readable form
 
