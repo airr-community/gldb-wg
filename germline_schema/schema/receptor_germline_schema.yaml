@@ -283,10 +283,6 @@ Genotype:
             type: string
             description: Identifier of the allele (either IMGT, or the name assigned by the submitter to an inferred gene)
             completed_by: submitter
-        subject_id: 
-            type: string
-            description: Identifier of the subject from which this genotype was inferred (please provide separate genotypes for each subject)
-            completed_by: submitter
         sequences:
             type: integer
             description: Overall number of sequences assigned to this allele

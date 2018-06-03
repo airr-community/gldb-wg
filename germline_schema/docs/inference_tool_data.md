@@ -63,7 +63,6 @@ submitted alleles, allows the submitted alleles to be viewed in context.
 | Name | Description | Provided by tool? | Comments |
 | --- | --- | --- | --- |
 | `sequence_id` | Identifier of the allele (either IMGT, or the name assigned by the submitter to an inferred gene) |          |                                     |
-| `subject_id` | Identifier of the subject from which this genotype was inferred (please provide separate genotypes for each subject) |          |                                     |
 | `sequences` | Overall number of sequences assigned to this allele |          |                                     |
 | `closest_reference` | For inferred alleles, the closest reference gene and allele, as inferred by the tool |          |                                     |
 | `closest_host` | For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool |          |                                     |
