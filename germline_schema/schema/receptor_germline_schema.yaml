@@ -64,7 +64,7 @@ Repertoire:
             completed_by: submitter
         repository_name:
             type: string
-            description: Name of the repository holding the sequence dataset
+            description: Name of the repository holding the sequence dataset (e.g. NIH SRA)
             completed_by: submitter
         repository_id:
             type: string
@@ -72,15 +72,15 @@ Repertoire:
             completed_by: submitter
         dataset_url:
             type: url
-            description: URL of the sequence dataset (if any)
+            description: URL of the sequence dataset (in the case of the NIH SRA, please provide the URL to the Project)
             completed_by: submitter
         dataset_doi:
             type: doi
-            description: doi of the sequence dataset (if any)
+            description: doi of the sequence dataset (If any. Not all archives provide a doi, in particular the NIH SRA does not)
             completed_by: submitter
         miarr_compliant:
             type: boolean
-            description: TRUE if the repertoire dataset and associated metadata is in MiAIRR format
+            description: TRUE if the repertoire dataset and associated metadata is available in MiAIRR format
             completed_by: submitter
         miairr_link:
             type: url
@@ -101,6 +101,10 @@ Repertoire:
         reverse_primer_set:
             type: IUPAC nucleotide notation
             description: sequences of reverse pcr primers used for sequence amplification
+            completed_by: submitter
+        primers_not_overlapping:
+            type: boolean
+            description: Please confirm that primers do not overlap with the stated sequence of any inferred allele.
             completed_by: submitter
         notes:
             type: text
@@ -195,7 +199,7 @@ Inferred_Sequence:
             completed_by: submitter
         nt_substitutions:
             type: string
-            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele
+            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele. 
             completed_by: submitter
         aa_diff:
             type: integer
@@ -203,18 +207,18 @@ Inferred_Sequence:
             completed_by: submitter
         aa_substitutions:
             type: string
-            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele
+            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes.
             completed_by: submitter
         unmutated_frequency:
             type: number
-            description: The proportion of records in the sequence dataset matching this unmutated sequence
+            description: The proportion of unmutated sequences in the dataset represented by this sequence.
             completed_by: submitter
         unmutated_sequences:
             type: integer
             description: The number of records in the sequence dataset exactly matching this unmutated sequence
         unmutated_umis:
             type: integer
-            description: The number of molecules (identified by UMIs) exactly matching this unmutated sequence
+            description: The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used)
             completed_by: submitter
         allelic_percentage:
             type: number
@@ -222,11 +226,11 @@ Inferred_Sequence:
             completed_by: submitter
         unique_ds:
             type: integer
-            description: Number of unique D sequences found associated with the inferred V sequence
+            description: Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
             completed_by: submitter
         unique_js:
             type: integer
-            description: Number of unique J sequences found associated with the inferred V sequence
+            description: Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
             completed_by: submitter
         unique_cdr3s:
             type: integer
@@ -309,11 +313,11 @@ Genotype:
             completed_by: submitter
         aa_substitutions:
             type: string
-            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele
+            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes.
             completed_by: submitter            
         unmutated_frequency:
             type: number
-            description: The proportion of records in the sequence dataset matching this unmutated sequence
+            description: The proportion of unmutated sequences in the dataset represented by this sequence.
             completed_by: submitter
         unmutated_sequences:
             type: integer
@@ -321,7 +325,7 @@ Genotype:
             completed_by: submitter
         unmutated_umis:
             type: integer
-            description: The number of molecules (identified by UMIs) exactly matching this unmutated sequence
+            description: The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used)
             completed_by: submitter
         allelic_percentage:
             type: number
@@ -329,15 +333,15 @@ Genotype:
             completed_by: submitter
         unique_ds:
             type: integer
-            description: Number of unique D sequences found associated with the inferred V sequence
+            description: Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
             completed_by: submitter
         unique_js:
             type: integer
-            description: Number of unique J sequences found associated with the inferred V sequence
+            description: Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
             completed_by: submitter
         unique_cdr3s:
             type: integer
-            description: Number of unique CDR3s found associated with the inferred V sequence
+            description: Number of unique CDR3s found associated with an inferred V sequence
             completed_by: submitter
         haplotyping_locus:
             type: string

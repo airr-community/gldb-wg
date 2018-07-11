@@ -144,6 +144,8 @@ def main(argv):
 
         for column_cells in ws.columns:
             length = max(len(as_text(cell.value))+2 for cell in column_cells)
+            if len(column_cells) > 0 and column_cells[0].column == 'D' and length < 50:
+                length = 50
             ws.column_dimensions[column_cells[0].column].width = length
 
 
