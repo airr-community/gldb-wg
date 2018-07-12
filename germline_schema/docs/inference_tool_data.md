@@ -35,15 +35,15 @@ Please provide information on your tool by completing the tables below. These co
 | `closest_reference` |  The closest reference gene and allele, as inferred by the tool |          |                                     |
 | `closest_host` |  The closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool |          |                                     |
 | `nt_diff` |  Number of nucleotides that differ between this sequence and the closest reference gene and allele |          |                                     |
-| `nt_substitutions` |  List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele |          |                                     |
+| `nt_substitutions` |  List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele. |          |                                     |
 | `aa_diff` |  Number of amino acids that differ between this sequence and the closest reference gene and allele |          |                                     |
-| `aa_substitutions` |  List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele |          |                                     |
-| `unmutated_frequency` |  The proportion of records in the sequence dataset matching this unmutated sequence |          |                                     |
+| `aa_substitutions` |  List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes. |          |                                     |
+| `unmutated_frequency` |  The proportion of unmutated sequences in the dataset represented by this sequence. |          |                                     |
 | `unmutated_sequences` |  The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
-| `unmutated_umis` |  The number of molecules (identified by UMIs) exactly matching this unmutated sequence |          |                                     |
+| `unmutated_umis` |  The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used) |          |                                     |
 | `allelic_percentage` |  The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
-| `unique_ds` |  Number of unique D sequences found associated with the inferred V sequence |          |                                     |
-| `unique_js` |  Number of unique J sequences found associated with the inferred V sequence |          |                                     |
+| `unique_ds` |  Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
+| `unique_js` |  Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
 | `unique_cdr3s` |  Number of unique CDR3s found associated with the inferred V sequence |          |                                     |
 | `haplotyping_locus` |  Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6) |          |                                     |
 | `haplotyping_ratio` |  Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40) |          |                                     |
@@ -69,14 +69,14 @@ submitted alleles, allows the submitted alleles to be viewed in context.
 | `nt_diff` | For inferred alleles, the number of nucleotides that differ between this sequence and the closest reference gene and allele |          |                                     |
 | `nt_substitutions` | List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele |          |                                     |
 | `aa_diff` | For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele |          |                                     |
-| `aa_substitutions` | List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele |          |                                     |
-| `unmutated_frequency` | The proportion of records in the sequence dataset matching this unmutated sequence |          |                                     |
+| `aa_substitutions` | List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes. |          |                                     |
+| `unmutated_frequency` | The proportion of unmutated sequences in the dataset represented by this sequence. |          |                                     |
 | `unmutated_sequences` | The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
-| `unmutated_umis` | The number of molecules (identified by UMIs) exactly matching this unmutated sequence |          |                                     |
+| `unmutated_umis` | The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used) |          |                                     |
 | `allelic_percentage` | The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
-| `unique_ds` | Number of unique D sequences found associated with the inferred V sequence |          |                                     |
-| `unique_js` | Number of unique J sequences found associated with the inferred V sequence |          |                                     |
-| `unique_cdr3s` | Number of unique CDR3s found associated with the inferred V sequence |          |                                     |
+| `unique_ds` | Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
+| `unique_js` | Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
+| `unique_cdr3s` | Number of unique CDR3s found associated with an inferred V sequence |          |                                     |
 | `haplotyping_locus` | Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6) |          |                                     |
 | `haplotyping_ratio` | Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40) |          |                                     |
 | `nt_sequence` | The consensus sequence provided by the inference tool |          |                                     |

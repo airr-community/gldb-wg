@@ -7,7 +7,7 @@ Submission:
     description: Overall details of the submission
     type: object
     occurrence: single
-    version: 1.3
+    version: 1.4
     properties:
         submission_id:
             type: string
@@ -450,14 +450,14 @@ Genomic_Sequence:
     
 Gene_Description:
     discriminator: AIRR
-    version: 1.3
-    description: Details of a gene which is inferred from the observation of one or more sequences
+    version: 1.4
+    description: Details of a gene sequence which is inferred from one or more observations
     type: object
     occurrence: multiple
     properties:
         description_id:
             type: string
-            description: Unique identifier of this gene description
+            description: Unique identifier of this gene sequence
         author:
             type: name
             description: Corresponding author
@@ -469,7 +469,7 @@ Gene_Description:
             description: Institutional address of corresponding author
         release_version:
             type: number
-            description: Version number of this record, updated whenever a revised version is published
+            description: Version number of this record, updated whenever a revised version is published or released
         release_description:
             type: string
             description: Brief descriptive notes of the reason for this release and the changes embodied
@@ -482,24 +482,24 @@ Gene_Description:
         organism:
             type: string
             description: Binomial designation of subject's species
-        gene_name:
+        sequence_name:
             type: string
-            description: The canonical name of this gene (i.e., the name which the curators determine should be used by preference)
+            description: The canonical name of this sequence (i.e., the name which the curators determine should be used by preference)
         alt_names:
             type: strings
-            description: Alternative names for this gene
+            description: Alternative names for this sequence
         locus:
             type: [Heavy, Light-Kappa or Light-Lambda for B-cell sequences, or Alpha, Beta or Gamma for T-cell sequences]
             description: Gene locus
-        region:
-            type: [V,D,J,C]
-            description: Gene region
+        domain:
+            type: [V,C]
+            description: Sequence domain (Variable or Constant)
         functionality:
             type: [Functional,Nonfunctional]
             description: Functionality
-        inference_class:
+        inference_type:
             type: [Genomic and Rearranged, Genomic Only, Rearranged Only]
-            description: Class of sequence(s) from which this gene was inferred
+            description: Type of inference(s) from which this gene sequence was inferred (Genomic and Rearranged, Genomic Only, Rearranged Only)
         affirmation_level:
             type: [1,2,3]
             description: Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more)
@@ -569,12 +569,6 @@ Gene_Description:
         paralogs:
             type: list of strings
             description: Canonical names of 0 or more paralogs
-        observed_sequences:
-            type: string
-            description: IDs of 0 or more Observed_Sequence records
-        genomic_sequences:
-            type: string
-            description: IDs of 0 or more Genomic_Sequence records
         notes:
             type: string
             description: 

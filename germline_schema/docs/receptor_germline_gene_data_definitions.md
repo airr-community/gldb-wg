@@ -25,21 +25,21 @@ The description of a single gene.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `description_id` | string | Unique identifier of this gene description |
+| `description_id` | string | Unique identifier of this gene sequence |
 | `author` | name | Corresponding author |
 | `lab_name` | string | Department of corresponding author |
 | `lab_address` | string | Institutional address of corresponding author |
-| `release_version` | number | Version number of this record, updated whenever a revised version is published |
+| `release_version` | number | Version number of this record, updated whenever a revised version is published or released |
 | `release_description` | string | Brief descriptive notes of the reason for this release and the changes embodied |
 | `release_date` | date | Date of this release |
 | `pub_ids` | list of PubMed ids | Peer-reviewed publications describing this inference |
 | `organism` | string | Binomial designation of subject's species |
-| `gene_name` | string | The canonical name of this gene (i.e., the name which the curators determine should be used by preference) |
-| `alt_names` | strings | Alternative names for this gene |
+| `sequence_name` | string | The canonical name of this sequence (i.e., the name which the curators determine should be used by preference) |
+| `alt_names` | strings | Alternative names for this sequence |
 | `locus` | ['Heavy', 'Light-Kappa or Light-Lambda for B-cell sequences', 'or Alpha', 'Beta or Gamma for T-cell sequences'] | Gene locus |
-| `region` | ['V', 'D', 'J', 'C'] | Gene region |
+| `domain` | ['V', 'C'] | Sequence domain (Variable or Constant) |
 | `functionality` | ['Functional', 'Nonfunctional'] | Functionality |
-| `inference_class` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Class of sequence(s) from which this gene was inferred |
+| `inference_type` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Type of inference(s) from which this gene sequence was inferred (Genomic and Rearranged, Genomic Only, Rearranged Only) |
 | `affirmation_level` | [1, 2, 3] | Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more) |
 | `status` | ['Active', 'Deprecated', 'Novel'] | Deprecated sequences are those that have been superceded or removed because of errors or uncertainty. Novel sequences are those that have not been fully scrutinised. Others are Active. |
 | `deprecation_reason` | string | If deprecated, the reason for deprecation |
@@ -63,8 +63,6 @@ The description of a single gene.
 | `j_rs_start` | integer | Start co-ordinate of J recombination site (J-genes only) |
 | `j_rs_end` | integer | End co-ordinate of J recombination site (J-genes only) |
 | `paralogs` | list of strings | Canonical names of 0 or more paralogs |
-| `observed_sequences` | string | IDs of 0 or more Observed_Sequence records |
-| `genomic_sequences` | string | IDs of 0 or more Genomic_Sequence records |
 | `notes` | string | None |
 
 ### Germline Delineation
