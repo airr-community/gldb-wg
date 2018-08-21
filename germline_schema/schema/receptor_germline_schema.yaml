@@ -64,19 +64,15 @@ Repertoire:
             completed_by: submitter
         repository_name:
             type: string
-            description: Name of the repository holding the sequence dataset (e.g. NIH SRA)
+            description: Name of the repository holding the sequence dataset (e.g. NIH SRA, or ENA)
             completed_by: submitter
         repository_id:
             type: string
-            description: Id or serial number of the sequence dataset within the repository
+            description: Accession number or serial number within the repository (e.g. NIH Project or ENA Study)
             completed_by: submitter
         dataset_url:
             type: url
-            description: URL of the sequence dataset (in the case of the NIH SRA, please provide the URL to the Project)
-            completed_by: submitter
-        dataset_doi:
-            type: doi
-            description: doi of the sequence dataset (If any. Not all archives provide a doi, in particular the NIH SRA does not)
+            description: URL of the study or project within the repository
             completed_by: submitter
         miarr_compliant:
             type: boolean
@@ -176,6 +172,10 @@ Inferred_Sequence:
         type: string
         description: Identifier of the genotype from which these sequences were inferred
         completed_by: submitter
+    run_ids: 
+        type: list of accession numbers
+        description: Accession number(s) of the run(s) listing the raw sequences from which this inference was made
+        completed_by: submitter
     properties:
         sequence_id:
             type: string
@@ -214,18 +214,18 @@ Inferred_Sequence:
             completed_by: submitter
         unmutated_frequency:
             type: number
-            description: The proportion of unmutated sequences in the dataset represented by this sequence.
+            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100
             completed_by: submitter
         unmutated_sequences:
             type: integer
-            description: The number of records in the sequence dataset exactly matching this unmutated sequence
+            description: The number of sequences exactly matching this unmutated sequence
         unmutated_umis:
             type: integer
             description: The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used)
             completed_by: submitter
         allelic_percentage:
             type: number
-            description: The percentage at which this allele was observed in the sequence dataset, compared to other alleles
+            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100
             completed_by: submitter
         unique_ds:
             type: integer
@@ -277,14 +277,19 @@ Genotype:
     description: Details of the complete genotype from which inferred sequences were drawn
     type: object
     occurrence: multiple
-    genotyope_id: 
+    genotype_id: 
         type: string
         description: Identifier of this genotype
         completed_by: submitter
-    subject_id: 
-        type: string
-        description: Identifier of the subject from which this genotype was inferred
+    biosample_ids: 
+        type: list of accession numbers
+        description: Accession number(s) of the sample(s) from which the genotype was derived (e.g. NIH biosamples or ENA samples)
         completed_by: submitter
+    subject_id:
+        type: string
+        description: Identifier of the subject from which this genotype was inferred (assigned by the submitter)
+        completed_by: submitter
+        tableview: true
     properties:
         sequence_id:
             type: string
@@ -320,11 +325,11 @@ Genotype:
             completed_by: submitter            
         unmutated_frequency:
             type: number
-            description: The proportion of unmutated sequences in the dataset represented by this sequence.
+            description:  The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100
             completed_by: submitter
         unmutated_sequences:
             type: integer
-            description: The number of records in the sequence dataset exactly matching this unmutated sequence
+            description: The number of sequences exactly matching this unmutated sequence
             completed_by: submitter
         unmutated_umis:
             type: integer
@@ -332,7 +337,7 @@ Genotype:
             completed_by: submitter
         allelic_percentage:
             type: number
-            description: The percentage at which this allele was observed in the sequence dataset, compared to other alleles
+            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100
             completed_by: submitter
         unique_ds:
             type: integer
@@ -493,7 +498,7 @@ Gene_Description:
             description: Alternative names for this sequence
         receptor_type:
             type: [B-cell, T-cell]
-            description Receptor type
+            description: Receptor type
         locus:
             type: [Heavy, Light-Kappa or Light-Lambda for B-cell sequences, or Alpha, Beta or Gamma for T-cell sequences]
             description: Gene locus

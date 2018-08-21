@@ -32,16 +32,17 @@ Please provide information on your tool by completing the tables below. These co
 | --- | --- | --- | --- |
 | `sequence_id` |  Identifier of the allele, issued by the submitter (need not follow any particular format) |          |                                     |
 | `sequences` |  Overall number of sequences assigned to this allele |          |                                     |
+| `domain` |  Sequence domain (V, D, J or Constant) |          |                                     |
 | `closest_reference` |  The closest reference gene and allele, as inferred by the tool |          |                                     |
 | `closest_host` |  The closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool |          |                                     |
 | `nt_diff` |  Number of nucleotides that differ between this sequence and the closest reference gene and allele |          |                                     |
 | `nt_substitutions` |  List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele. |          |                                     |
 | `aa_diff` |  Number of amino acids that differ between this sequence and the closest reference gene and allele |          |                                     |
 | `aa_substitutions` |  List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes. |          |                                     |
-| `unmutated_frequency` |  The proportion of unmutated sequences in the dataset represented by this sequence. |          |                                     |
-| `unmutated_sequences` |  The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
+| `unmutated_frequency` |  The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100 |          |                                     |
+| `unmutated_sequences` |  The number of sequences exactly matching this unmutated sequence |          |                                     |
 | `unmutated_umis` |  The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used) |          |                                     |
-| `allelic_percentage` |  The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
+| `allelic_percentage` |  The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100 |          |                                     |
 | `unique_ds` |  Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
 | `unique_js` |  Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
 | `unique_cdr3s` |  Number of unique CDR3s found associated with the inferred V sequence |          |                                     |
@@ -70,10 +71,10 @@ submitted alleles, allows the submitted alleles to be viewed in context.
 | `nt_substitutions` | List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele |          |                                     |
 | `aa_diff` | For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele |          |                                     |
 | `aa_substitutions` | List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes. |          |                                     |
-| `unmutated_frequency` | The proportion of unmutated sequences in the dataset represented by this sequence. |          |                                     |
-| `unmutated_sequences` | The number of records in the sequence dataset exactly matching this unmutated sequence |          |                                     |
+| `unmutated_frequency` | The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100 |          |                                     |
+| `unmutated_sequences` | The number of sequences exactly matching this unmutated sequence |          |                                     |
 | `unmutated_umis` | The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used) |          |                                     |
-| `allelic_percentage` | The percentage at which this allele was observed in the sequence dataset, compared to other alleles |          |                                     |
+| `allelic_percentage` | The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100 |          |                                     |
 | `unique_ds` | Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
 | `unique_js` | Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence |          |                                     |
 | `unique_cdr3s` | Number of unique CDR3s found associated with an inferred V sequence |          |                                     |

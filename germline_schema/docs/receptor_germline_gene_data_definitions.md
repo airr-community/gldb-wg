@@ -36,14 +36,15 @@ The description of a single gene.
 | `organism` | string | Binomial designation of subject's species |
 | `sequence_name` | string | The canonical name of this sequence (i.e., the name which the curators determine should be used by preference) |
 | `alt_names` | strings | Alternative names for this sequence |
+| `receptor_type` | ['B-cell', 'T-cell'] | Receptor type |
 | `locus` | ['Heavy', 'Light-Kappa or Light-Lambda for B-cell sequences', 'or Alpha', 'Beta or Gamma for T-cell sequences'] | Gene locus |
-| `domain` | ['V', 'C'] | Sequence domain (Variable or Constant) |
-| `functionality` | ['Functional', 'Nonfunctional'] | Functionality |
+| `domain` | ['V', 'D', 'J', 'C'] | Sequence domain (V, D, J or Constant) |
+| `functional` | Boolean | Functional |
 | `inference_type` | ['Genomic and Rearranged', 'Genomic Only', 'Rearranged Only'] | Type of inference(s) from which this gene sequence was inferred (Genomic and Rearranged, Genomic Only, Rearranged Only) |
 | `affirmation_level` | [1, 2, 3] | Count of independent studies in which this allele as been affirmed by IARC (1,2,3 or more) |
 | `status` | ['Active', 'Deprecated', 'Novel'] | Deprecated sequences are those that have been superceded or removed because of errors or uncertainty. Novel sequences are those that have not been fully scrutinised. Others are Active. |
 | `deprecation_reason` | string | If deprecated, the reason for deprecation |
-| `gene_subgroup` | string | Gene subgroup (family), as identified for this species |
+| `gene_subgroup` | string | Gene subgroup (family), as (and if) identified for this species and gene |
 | `subgroup_designation` | string | Gene designation within this subgroup |
 | `allele_designation` | string | Allele designation |
 | `sequence` | IUPAC nucleotide notation | nt sequence of the gene. This should cover the full length that is available, including where possible 5' UTR and lead-in for V-gene sequences |
@@ -73,7 +74,7 @@ The delineation of fields, and the numbering of codons, according to a particula
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `gene_name` | name | Canonical name of the gene to which this delineation applies |
+| `gene_name` | string | Canonical name of the gene to which this delineation applies |
 | `gene_release_version` | integer | Version of the Gene Description to which this delineation applies |
 | `delineation_scheme` | string | e.g. Kabat, IMGT, Chothia |
 | `v_start` | integer | Co-ordinate of first V nucleotide in Gene Description 'sequence' field |
@@ -123,7 +124,7 @@ Sequences, either observed in repertoires or genomic in origin, leading to the i
 | Name | Type | Description |
 | --- | --- | --- |
 | `sequence_id` | string | IARC unique reference for this sequence observation |
-| `sequence` | nucleotide sequence | Sequence of interest described in this record |
+| `sequence` | IUPAC nucleotide notation | Sequence of interest described in this record |
 | `derivation` | ['DNA', 'mRNA'] | Material from which the sequence was derived |
 | `observation_type` | string | e.g. direct sequencing, inference from repertoire |
 | `notes` | text | Notes added by IARC |
