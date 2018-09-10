@@ -1,390 +1,6 @@
 #
-# Schema definitions for IARC inferred gene submissions
+# Schema definitions for IARC reported genes
 #
-# Submission Details
-Submission:
-    discriminator: AIR3
-    description: Overall details of the submission
-    type: object
-    occurrence: single
-    version: 1.4
-    properties:
-        submission_id:
-            type: string
-            description: Unique ID assigned by IARC on recipt of submission
-            completed_by: IARC
-        submission_date:
-            type: date
-            description: Date submission received
-            completed_by: IARC
-        submission_status:
-            type: [draft,reviewing,published,complete]
-            description: Status of submission
-            completed_by: IARC
-        submitter_name:
-            type: string
-            description: Full contact information of the submitter, i.e. the person depositing the data
-            completed_by: submitter
-        submitter_address:
-            type: string
-            description: Institutional address of submitter
-            completed_by: submitter
-        submitter_email:
-            type: email_address
-            description: Preferred email address of submitter
-            completed_by: submitter
-        submitter_phone:
-            type: phone_number
-            description: Preferred phone number of submitter
-            completed_by: submitter
-        species:
-            type: species for which the gene is inferred
-            description: Binomial designation of subject's species
-            completed_by: submitter
-        population_ethnicity:
-            type: string
-            description: Information on the ethnicity/population/race of the sample from which the submitted allele was inferred (if not known, use "UN")
-            completed_by: submitter
-        IARC_tracking:
-            type: list of timestamped strings
-            description: Notes from IARC tracking overall progress of this submission, eg additional info requested, when reviewed, etc
-            completed_by: IARC
-
-
-# Repertoire Dataset
-Repertoire:
-    discriminator: AIRR
-    description: Details of the repertoire dataset from which inferences were made
-    type: object
-    occurrence: single
-    properties:
-        pub_ids:
-            type: list of PubMed ids
-            description: PubMed ids of peer-reviewed publications describing this dataset
-            completed_by: submitter
-        repository_name:
-            type: string
-            description: Name of the repository holding the sequence dataset (e.g. NIH SRA, or ENA)
-            completed_by: submitter
-        repository_id:
-            type: string
-            description: Accession number or serial number within the repository (e.g. NIH Project or ENA Study)
-            completed_by: submitter
-        dataset_url:
-            type: url
-            description: URL of the study or project within the repository
-            completed_by: submitter
-        miarr_compliant:
-            type: boolean
-            description: TRUE if the repertoire dataset and associated metadata is available in MiAIRR format
-            completed_by: submitter
-        miairr_link:
-            type: url
-            description: Link to MiAIRR metadata, if available
-            completed_by: submitter
-        sequencing_platform:
-            type: string
-            description: Designation of sequencing instrument used
-            completed_by: submitter
-        read_length:
-            type: string
-            description: Read length in bases for each direction
-            completed_by: submitter
-        forward_primer_set:
-            type: IUPAC nucleotide notation
-            description: sequences of forward pcr primers used for sequence amplification
-            completed_by: submitter
-        reverse_primer_set:
-            type: IUPAC nucleotide notation
-            description: sequences of reverse pcr primers used for sequence amplification
-            completed_by: submitter
-        primers_not_overlapping:
-            type: boolean
-            description: Please confirm that primers do not overlap with the stated sequence of any inferred allele.
-            completed_by: submitter
-        notes:
-            type: text
-            description: Notes relating to the dataset, for example covering details of origin or processing methods not described in publications or sequence depositions. Please provide details of cell types sequenced, or indicate clearly where this and related biosample information can be found.
-            completed_by: submitter
-            
-
-# Inference Tool Overview
-Inference_Tool_Overview:
-    discriminator: AIRR
-    description: Header for submission of tool information
-    type: object
-    occurrence: single
-    properties:
-        tool_name:
-            type: string
-            description: Name of the inference tool
-            completed_by: submitter
-        tool_version:
-            type: string
-            description: Version of the inference tool for which this information was submitted
-            completed_by: submitter
-        submitter_name:
-            type: string
-            description: Name of the person submitting tool information
-            completed_by: submitter
-        submitter_address:
-            type: email address
-            description: Email address of the person submitting tool information
-            completed_by: submitter
-
-            
-# Inference Tool
-Inference_Tool:
-    discriminator: AIRR
-    description: Tool used to infer the submitted sequences
-    type: object
-    occurrence: single
-    properties:
-        tool_name:
-            type: string
-            description: Name of the inference tool
-            completed_by: submitter
-        tool_version:
-            type: string
-            description: Version of the inference tool
-            completed_by: submitter
-        starting_database:
-            type: string
-            description: Starting germline database used by the tool (please specify where and when it was obtained, name, and version id, if any)
-            completed_by: submitter
-        tool_settings:
-            type: string
-            description: Settings/configuration of the tool when used to provide the inferences (automatically generated)
-            completed_by: submitter
-
-            
-# Inferred Sequence
-Inferred_Sequence:
-    discriminator: AIRR
-    description: Details of inferred sequences submitted for IARC approval
-    type: object
-    occurrence: multiple
-    subject_id: 
-        type: string
-        description: Identifier of the subject from which these sequences were inferred
-        completed_by: submitter
-    genotyope_id: 
-        type: string
-        description: Identifier of the genotype from which these sequences were inferred
-        completed_by: submitter
-    run_ids: 
-        type: list of accession numbers
-        description: Accession number(s) of the run(s) listing the raw sequences from which this inference was made
-        completed_by: submitter
-    properties:
-        sequence_id:
-            type: string
-            description: Identifier of the allele, issued by the submitter (need not follow any particular format)
-            completed_by: submitter
-        sequences:
-            type: integer
-            description: Overall number of sequences assigned to this allele
-            completed_by: submitter
-        domain:
-            type: [V,D,J,C]
-            description: Sequence domain (V, D, J or Constant)
-        closest_reference:
-            type: string
-            description: The closest reference gene and allele, as inferred by the tool
-            completed_by: submitter
-        closest_host:
-            type: string
-            description: The closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool
-            completed_by: submitter
-        nt_diff:
-            type: integer
-            description: Number of nucleotides that differ between this sequence and the closest reference gene and allele
-            completed_by: submitter
-        nt_substitutions:
-            type: string
-            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele. 
-            completed_by: submitter
-        aa_diff:
-            type: integer
-            description: Number of amino acids that differ between this sequence and the closest reference gene and allele
-            completed_by: submitter
-        aa_substitutions:
-            type: string
-            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes.
-            completed_by: submitter
-        unmutated_frequency:
-            type: number
-            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100
-            completed_by: submitter
-        unmutated_sequences:
-            type: integer
-            description: The number of sequences exactly matching this unmutated sequence
-        unmutated_umis:
-            type: integer
-            description: The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used)
-            completed_by: submitter
-        allelic_percentage:
-            type: number
-            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100
-            completed_by: submitter
-        unique_ds:
-            type: integer
-            description: Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
-            completed_by: submitter
-        unique_js:
-            type: integer
-            description: Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
-            completed_by: submitter
-        unique_cdr3s:
-            type: integer
-            description: Number of unique CDR3s found associated with the inferred V sequence
-            completed_by: submitter
-        haplotyping_locus:
-            type: string
-            description: Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6)
-            completed_by: submitter
-        haplotyping_ratio:
-            type: string
-            description: Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40)
-            completed_by: submitter
-        nt_sequence:
-            type: IUPAC nucleotide notation
-            description: The consensus sequence provided by the inference tool
-            completed_by: submitter
-        phred_score:
-            type: string (phred format)
-            description: phred string (FASTQ format) for the consensus contig from which this nt sequence was inferred
-        repository_name:
-            type: string
-            description: Name of the repository in which the sequence has been deposited
-            completed_by: submitter
-        repository_id:
-            type: string
-            description: Id or serial number of the sequence within the repository
-            completed_by: submitter        
-        deposited_version:
-            type: string
-            description: Version number of the sequence within the repository
-            completed_by: submitter
-        IARC_tracking:
-            type: list of timestamped strings
-            description: Notes from IARC tracking overall progress of this submission, eg additional info requested, when reviewed, etc
-            completed_by: IARC
-       
-# V-Gene Genotype, for each subject referenced in the set of inferred sequences
-Genotype:
-    discriminator: AIRR
-    description: Details of the complete genotype from which inferred sequences were drawn
-    type: object
-    occurrence: multiple
-    genotype_id: 
-        type: string
-        description: Identifier of this genotype
-        completed_by: submitter
-    biosample_ids: 
-        type: list of accession numbers
-        description: Accession number(s) of the sample(s) from which the genotype was derived (e.g. NIH biosamples or ENA samples)
-        completed_by: submitter
-    subject_id:
-        type: string
-        description: Identifier of the subject from which this genotype was inferred (assigned by the submitter)
-        completed_by: submitter
-        tableview: true
-    properties:
-        sequence_id:
-            type: string
-            description: Identifier of the allele (either IMGT, or the name assigned by the submitter to an inferred gene)
-            completed_by: submitter
-        sequences:
-            type: integer
-            description: Overall number of sequences assigned to this allele
-            completed_by: submitter
-        closest_reference:
-            type: string
-            description: For inferred alleles, the closest reference gene and allele, as inferred by the tool
-            completed_by: submitter
-        closest_host:
-            type: string
-            description: For inferred alleles, the closest reference gene and allele that is in the subject's inferred genotype, as inferred by the tool
-            completed_by: submitter
-        nt_diff:
-            type: integer
-            description: For inferred alleles, the number of nucleotides that differ between this sequence and the closest reference gene and allele
-            completed_by: submitter
-        nt_substitutions:
-            type: string
-            description: List of nucleotide substitutions (e.g. G112A) between this sequence and the closest reference gene and allele
-            completed_by: submitter            
-        aa_diff:
-            type: integer
-            description: For inferred alleles, the number of amino acids that differ between this sequence and the closest reference gene and allele
-            completed_by: submitter
-        aa_substitutions:
-            type: string
-            description: List of amino acid substitutions (e.g. A96N) between this sequence and the closest reference gene and allele. Please use IMGT numbering for V-genes, and number from start of coding sequence for D- or J- genes.
-            completed_by: submitter            
-        unmutated_frequency:
-            type: number
-            description:  The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of any gene, *100
-            completed_by: submitter
-        unmutated_sequences:
-            type: integer
-            description: The number of sequences exactly matching this unmutated sequence
-            completed_by: submitter
-        unmutated_umis:
-            type: integer
-            description: The number of molecules (identified by Unique Molecular Identifiers) exactly matching this unmutated sequence (if UMIs were used)
-            completed_by: submitter
-        allelic_percentage:
-            type: number
-            description: The number of sequences exactly matching the sequence of this allele divided by the number of sequences exactly matching any allele of this specific gene, *100
-            completed_by: submitter
-        unique_ds:
-            type: integer
-            description: Number of D allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
-            completed_by: submitter
-        unique_js:
-            type: integer
-            description: Number of J allele calls (i.e., unique allelic sequences) found associated with an inferred V sequence
-            completed_by: submitter
-        unique_cdr3s:
-            type: integer
-            description: Number of unique CDR3s found associated with an inferred V sequence
-            completed_by: submitter
-        haplotyping_locus:
-            type: string
-            description: Locus (or loci) from which haplotyping was inferred (e.g. IGHJ6)
-            completed_by: submitter
-        haplotyping_ratio:
-            type: string
-            description: Ratio (expressed as two percentages) with which the two inferred haplotypes were found (e.g. 60:40)
-            completed_by: submitter
-        nt_sequence:
-            type: IUPAC nucleotide notation
-            description: The consensus sequence provided by the inference tool
-            completed_by: submitter
-            
-SoftwareProcessing:
-    discriminator: AIRR
-    type: object
-    properties:
-        software_name:
-            type: string
-            description: Name of the tool used to produce these inferences
-        software_version:
-            type: string
-            description: Version number and / or date
-        reference_germline_set:
-            type: string
-            description: Name or description of the germline set used by the tool
-        reference_germline_version:
-            type: string
-            description: Version number and / or date
-        software_settings:
-            type: dictionary
-            description: Dictionary of setting types and values specific to this software tool
-
-    
 Observed_Sequence:
     discriminator: AIRR
     description: Details of a directly observed or inferred sequence which contributes to the inference of a gene
@@ -496,9 +112,6 @@ Gene_Description:
         alt_names:
             type: strings
             description: Alternative names for this sequence
-        receptor_type:
-            type: [B-cell, T-cell]
-            description: Receptor type
         locus:
             type: [Heavy, Light-Kappa or Light-Lambda for B-cell sequences, or Alpha, Beta or Gamma for T-cell sequences]
             description: Gene locus
@@ -590,7 +203,7 @@ Gene_Delineation_V:
     type: object
     occurrence: multiple
     properties:
-        gene_name:
+        sequence_name:
             type: string
             description: Canonical name of the gene to which this delineation applies
         gene_release_version:
@@ -649,7 +262,7 @@ Gene_Delineation_D:
     type: object
     occurrence: multiple
     properties:
-        gene_name:
+        sequence_name:
             type: name
             description: Canonical name of the gene to which this delineation applies
         gene_release_version:
@@ -672,7 +285,7 @@ Gene_Delineation_J:
     type: object
     occurrence: multiple
     properties:
-        gene_name:
+        sequence_name:
             type: name
             description: Canonical name of the gene to which this delineation applies
         gene_release_version:
@@ -716,6 +329,9 @@ Germline_Set:
         release_date:
             type: date
             description: Date of this release
+        germline_set_name:
+            type: string
+            description: descriptive name of this germline set
         pub_ids:
             type: list of PubMed ids
             description: Peer-reviewed publications describing this dataset
@@ -723,7 +339,7 @@ Germline_Set:
             type: string
             description: Binomial designation of subject's species
         gene_descriptions:
-            type: string
+            type: list
             description: list of one or more Gene_Description records
         notes:
             type: string
