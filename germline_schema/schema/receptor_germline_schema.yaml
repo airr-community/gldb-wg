@@ -300,7 +300,7 @@ Gene_Delineation_J:
  
 Germline_Set:
     discriminator: AIRR
-    description: Details of a gene which is inferred from the observation of one or more sequences
+    description: Details of a 'germline set' bringing together multiple GeneDescriptions from the same strain or species
     type: object
     occurrence: multiple
     properties:
