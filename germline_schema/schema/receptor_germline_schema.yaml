@@ -134,15 +134,12 @@ GeneDescription:
         sequence:
             type: IUPAC DOTTED
             description: nt sequence of the gene. This should cover the full length that is available, including where possible 5' UTR and lead-in for V-gene sequences
-            rows: 8
         coding_seq_imgt:
             type: IUPAC GAPPED
             description: nucleotide sequence of the coding region, aligned, in the case of a V-gene, with the IMGT numbering scheme
-            rows: 12
         codon_frame:
             type: [1,2,3]
             description: Codon position of the first sequence symbol in the Coding Sequence. Mandatory for J genes. Not used for V or D genes. ('1' means the sequence is in-frame, '2' means that the first bp is missing from the first codon, '3' means that the first 2 bp are missing)
-            width: narrow
         j_cdr3_end:
             type: integer
             description: In the case of a J-gene, the co-ordinate in the Coding Sequence of the first nucelotide of the conserved PHE or TRP (IMGT codon position 118)
